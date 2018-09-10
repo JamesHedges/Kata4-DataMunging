@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Kata04.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "LoadTestData -S weather.dat -F Weather.dat"
+    }
+  }
+}

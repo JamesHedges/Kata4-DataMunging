@@ -1,0 +1,5 @@
+{
+  "appsettings": {
+      "kataDataBaseAddress": "http://codekata.com/data/04/"
+  }
+}

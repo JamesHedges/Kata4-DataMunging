@@ -8,10 +8,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="applicationsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="applicationsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Mcmaster.Extensions.CommandLineUtils" Version="2.2.5" />
+    <PackageReference Include="mediatr" Version="5.1.0" />
+    <PackageReference Include="microsoft.Extensions.Configuration.Json" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+    <PackageReference Include="scrutor" Version="3.0.1" />
   </ItemGroup>
 
 </Project>

@@ -9,3 +9,4 @@ C:\Projects\Katas\CodeKata.com\Kata04-DataMunging\Src\Kata04.Console\obj\Debug\n
 C:\Projects\Katas\CodeKata.com\Kata04-DataMunging\Src\Kata04.Console\bin\Debug\netcoreapp2.1\Kata04.pdb
 C:\Projects\Katas\CodeKata.com\Kata04-DataMunging\Src\Kata04.Console\obj\Debug\netcoreapp2.1\Kata04.dll
 C:\Projects\Katas\CodeKata.com\Kata04-DataMunging\Src\Kata04.Console\obj\Debug\netcoreapp2.1\Kata04.pdb
+C:\Projects\Katas\CodeKata.com\Kata04-DataMunging\Src\Kata04.Console\bin\Debug\netcoreapp2.1\applicationsettings.json

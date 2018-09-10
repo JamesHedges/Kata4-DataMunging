@@ -1,6 +1,8 @@
 using System;
 using Xunit;
 using Shouldly;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Kata04.Tests
 {
