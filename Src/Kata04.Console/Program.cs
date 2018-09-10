@@ -37,7 +37,7 @@ namespace Kata04
 
             services.AddLogging(c => c.AddConsole());
             services.AddTransient<ILogger>(p => p.GetRequiredService<ILoggerFactory>().CreateLogger("Console"));
-            services.AddSingleton<IConfiguration>(LoadConfiguration());
+            services.AddSingleton<IKata04Config>(new Kata04Config());
 
             services.Scan(scan =>
                 scan
@@ -47,6 +47,21 @@ namespace Kata04
 
             return services.BuildServiceProvider();
         }
+    }
+
+    public interface IKata04Config
+    {
+        string KataDataBaseAddress { get; }
+    }
+
+    public class Kata04Config : IKata04Config
+    {
+        private readonly IConfiguration _configuration;
+
+        public Kata04Config()
+        {
+            _configuration = LoadConfiguration();
+        }
 
         private static IConfiguration LoadConfiguration()
         {
@@ -54,5 +69,8 @@ namespace Kata04
                 .AddJsonFile("applicationsettings.json", false, true);
             return builder.Build();
         }
+
+        public string KataDataBaseAddress => _configuration?.GetValue<string>("appSettings:kataDataBaseAddress");
     }
+
 }

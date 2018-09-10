@@ -10,9 +10,9 @@ namespace Kata04
 {
     public class HttpStreamLoader : IRequestHandler<LoadTestDataCommand, LoadTestDataResponse>
     {
-        private readonly IConfiguration _configuration;
+        private readonly IKata04Config _configuration;
 
-        public HttpStreamLoader(IConfiguration configuration)
+        public HttpStreamLoader(IKata04Config configuration)
         {
             _configuration = configuration;
         }
@@ -22,7 +22,7 @@ namespace Kata04
             HttpClient client;
             client = new HttpClient()
             {
-                BaseAddress = new Uri(_configuration.GetValue<string>("appsettings:kataDataBaseAddress"))
+                BaseAddress = new Uri(_configuration.KataDataBaseAddress)
             };
 
             var response = await client.GetStreamAsync(source);

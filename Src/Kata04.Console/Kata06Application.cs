@@ -13,9 +13,9 @@ namespace Kata04
     {
         private readonly ILogger _logger;
         readonly IMediator _mediator;
-        readonly IConfiguration _configuration;
+        readonly IKata04Config _configuration;
 
-        public Kata06Application(ILogger logger, IMediator mediator, IConfiguration configuration)
+        public Kata06Application(ILogger logger, IMediator mediator, IKata04Config configuration)
         {
             _configuration = configuration;
             _mediator = mediator;
