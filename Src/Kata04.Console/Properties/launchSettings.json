@@ -2,7 +2,7 @@
   "profiles": {
     "Kata04.Console": {
       "commandName": "Project",
-      "commandLineArgs": "LoadTestData -S weather.dat -F Weather.dat"
+      "commandLineArgs": "LoadTestData -S football.dat -F Football.dat"
     }
   }
 }

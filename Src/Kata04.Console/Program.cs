@@ -2,10 +2,8 @@
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
 using MediatR;
 using Scrutor;
-using Microsoft.Extensions.Configuration;
 
 namespace Kata04
 {
@@ -48,29 +46,4 @@ namespace Kata04
             return services.BuildServiceProvider();
         }
     }
-
-    public interface IKata04Config
-    {
-        string KataDataBaseAddress { get; }
-    }
-
-    public class Kata04Config : IKata04Config
-    {
-        private readonly IConfiguration _configuration;
-
-        public Kata04Config()
-        {
-            _configuration = LoadConfiguration();
-        }
-
-        private static IConfiguration LoadConfiguration()
-        {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("applicationsettings.json", false, true);
-            return builder.Build();
-        }
-
-        public string KataDataBaseAddress => _configuration?.GetValue<string>("appSettings:kataDataBaseAddress");
-    }
-
 }
