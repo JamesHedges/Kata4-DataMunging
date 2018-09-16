@@ -6,6 +6,7 @@ using McMaster.Extensions;
 using McMaster.Extensions.CommandLineUtils;
 using MediatR;
 using Microsoft.Extensions.Configuration;
+using Kata04.Weather;
 
 namespace Kata04
 {
