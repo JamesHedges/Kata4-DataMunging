@@ -19,5 +19,6 @@ namespace Kata04
         }
 
         public string KataDataBaseAddress => _configuration?.GetValue<string>("appSettings:kataDataBaseAddress");
+        public string WeatherFilePath => _configuration?.GetValue<string>("appSettings:weatherFilePath");
     }
 }

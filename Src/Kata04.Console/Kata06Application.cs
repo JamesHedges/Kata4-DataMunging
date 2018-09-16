@@ -10,6 +10,8 @@ using Kata04.Weather;
 
 namespace Kata04
 {
+    //LoadTestData -S football.dat -F Football.dat
+    //MinSpread
     public class Kata06Application
     {
         private readonly ILogger _logger;
@@ -36,7 +38,8 @@ namespace Kata04
                     break;
                 case "MinSpread":
                     var minSpreadCommand = new MinSpreadCommand { };
-                    await _mediator.Send(minSpreadCommand);
+                    var response = await _mediator.Send(minSpreadCommand);
+                    _logger.LogInformation($"Min Departure Date: {response.MinRangeDayNumber}");
                     break;
                 default:
                     Console.WriteLine($"Invalid Command: {Command}");

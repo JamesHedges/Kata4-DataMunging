@@ -2,7 +2,7 @@
   "profiles": {
     "Kata04.Console": {
       "commandName": "Project",
-      "commandLineArgs": "LoadTestData -S football.dat -F Football.dat"
+      "commandLineArgs": "MinSpread"
     }
   }
 }
