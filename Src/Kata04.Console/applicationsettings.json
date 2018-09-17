@@ -1,6 +1,7 @@
 {
   "appsettings": {
     "kataDataBaseAddress": "http://codekata.com/data/04/",
-    "weatherFilePath": "C:\\Projects\\Katas\\CodeKata.com\\Kata04-DataMunging\\Data\\Weather.dat"
+    "weatherFilePath": "C:\\Projects\\Katas\\CodeKata.com\\Kata04-DataMunging\\Data\\Weather.dat",
+    "footballFilePath": "C:\\Projects\\Katas\\CodeKata.com\\Kata04-DataMunging\\Data\\Football.dat"
   }
 }

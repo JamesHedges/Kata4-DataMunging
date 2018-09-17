@@ -10,13 +10,13 @@ namespace Kata04.Football
         {
             _footballData = new List<FootballData>();
         }
-        public IReadOnlyList<FootballData> WeatherData => _footballData;
+        public IReadOnlyList<FootballData> FootballData => _footballData;
         public string HeaderText { get; set; }
         public string SummaryText { get; set; }
 
-        public void AddFootballData(FootballData weatherData)
+        public void AddFootballData(FootballData footballData)
         {
-            _footballData.Add(weatherData);
+            _footballData.Add(footballData);
         }
     }
 }

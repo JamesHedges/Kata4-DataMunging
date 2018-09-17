@@ -19,7 +19,7 @@ namespace Kata04.Football
         public async Task<FootballFileData> ProcessFile(StreamReader reader)
         {
             string line;
-            FootballFileData weatherFileData = new FootballFileData();
+            FootballFileData footballFileData = new FootballFileData();
             bool isFirstLine = true;
 
             while((line = await reader.ReadLineAsync()) != null)
@@ -27,27 +27,27 @@ namespace Kata04.Football
                 if (IsHeaderLine(isFirstLine))
                 {
                     isFirstLine = false;
-                    weatherFileData.HeaderText = ProcessHeaderLine(line);
+                    footballFileData.HeaderText = ProcessHeaderLine(line);
                 }
                 else if (IsSummaryLine(reader))
                 {
-                    weatherFileData.SummaryText = ProcessSummaryLine(line);
+                    footballFileData.SummaryText = ProcessSummaryLine(line);
                 }
                 else
                 {
                     if (!IsIgnored(line))
                     {
-                        weatherFileData.AddFootballData(ProcessFootballData(line));
+                        footballFileData.AddFootballData(ProcessFootballData(line));
                     }
                 }
             }
 
-            return weatherFileData;
+            return footballFileData;
         }
 
         private bool IsIgnored(string line)
         {
-            return string.IsNullOrEmpty(line) && _fileDescription.IgnoreBlankLines;
+            return (string.IsNullOrEmpty(line) || line.TrimStart().StartsWith("----")) && _fileDescription.IgnoreBlankLines;
         }
 
         private bool IsHeaderLine(bool isFirstLine)

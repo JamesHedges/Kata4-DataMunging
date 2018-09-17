@@ -17,7 +17,7 @@ namespace Kata04.Football
         public IReadOnlyList<DataField> DataFields => _dataFields ?? new List<DataField>();
 
         public bool HasHeadings => true;
-        public bool HasSummaryLine => true;
+        public bool HasSummaryLine => false;
         public bool IgnoreBlankLines => true;
         public string FilePath { get; }
 
@@ -25,23 +25,15 @@ namespace Kata04.Football
         {
             return new List<DataField>
             {
-                { new DataField { FieldName = "Day", DataType = typeof(int), StartIndex = 0, Length = 4}},
-                { new DataField { FieldName = "MxT", DataType = typeof(int), StartIndex = 4, Length = 4}},
-                { new DataField { FieldName = "MnT", DataType = typeof(int), StartIndex = 9, Length = 5}},
-                { new DataField { FieldName = "AvT", DataType = typeof(int), StartIndex = 15, Length = 5}},
-                { new DataField { FieldName = "HDDay", DataType = typeof(int), StartIndex = 20, Length = 8}},
-                { new DataField { FieldName = "AvDP", DataType = typeof(decimal), StartIndex = 28, Length = 6}},
-                { new DataField { FieldName = "OneHrP", DataType = typeof(int?), StartIndex = 34, Length = 5}},
-                { new DataField { FieldName = "TPcpn", DataType = typeof(decimal), StartIndex = 39, Length = 6}},
-                { new DataField { FieldName = "WxType", DataType = typeof(string), StartIndex = 45, Length = 8}},
-                { new DataField { FieldName = "PDir", DataType = typeof(int), StartIndex = 53, Length = 4}},
-                { new DataField { FieldName = "AvSP", DataType = typeof(decimal), StartIndex = 57, Length = 5}},
-                { new DataField { FieldName = "Dir", DataType = typeof(int), StartIndex = 62, Length = 4}},
-                { new DataField { FieldName = "MxS", DataType = typeof(int), StartIndex = 66, Length = 4}},
-                { new DataField { FieldName = "SkyC", DataType = typeof(decimal), StartIndex = 71, Length = 4}},
-                { new DataField { FieldName = "MxR", DataType = typeof(int), StartIndex = 75, Length = 4}},
-                { new DataField { FieldName = "MnR", DataType = typeof(int), StartIndex = 79, Length = 4}},
-                { new DataField { FieldName = "AvSLP", DataType = typeof(decimal), StartIndex = 83, Length = 6}}
+                { new DataField { FieldName = "Place", PropertyName = "Place", DataType = typeof(int), StartIndex = 0, Length = 5}},
+                { new DataField { FieldName = "Team", DataType = typeof(string), StartIndex = 7, Length = 15}},
+                { new DataField { FieldName = "P", PropertyName = "P", DataType = typeof(int), StartIndex = 23, Length = 6}},
+                { new DataField { FieldName = "W", PropertyName = "Win", DataType = typeof(int), StartIndex = 29, Length = 4}},
+                { new DataField { FieldName = "L", PropertyName = "Loss", DataType = typeof(int), StartIndex = 33, Length = 4}},
+                { new DataField { FieldName = "D", PropertyName = "D", DataType = typeof(int), StartIndex = 37, Length = 5}},
+                { new DataField { FieldName = "F", PropertyName = "For", DataType = typeof(int), StartIndex = 42, Length = 4}},
+                { new DataField { FieldName = "A", PropertyName = "Against", DataType = typeof(int), StartIndex = 48, Length = 4}},
+                { new DataField { FieldName = "Pts", PropertyName = "Points", DataType = typeof(int), StartIndex = 54, Length = 4}},
             };
         }
     }

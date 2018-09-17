@@ -5,7 +5,7 @@ using MediatR;
 using System.IO;
 using System.Linq;
 
-namespace Kata04.Weather
+namespace Kata04.Football
 {
     public class MinGoalDifferentialCommand : IRequest<MinGoalDifferentialResponse>
     {
@@ -13,7 +13,7 @@ namespace Kata04.Weather
 
     public class MinGoalDifferentialResponse
     {
-        public int MinRangeDayNumber { get; set; }
+        public string TeamName { get; set; }
     }
 
     /// <summary>
@@ -33,18 +33,18 @@ namespace Kata04.Weather
 
         public async Task<MinGoalDifferentialResponse> Handle(MinGoalDifferentialCommand request, CancellationToken cancellationToken)
         {
-            var fileDesc = new WeatherFileDescription(kata04Config.WeatherFilePath);
-            WeatherDataReader reader = new WeatherDataReader(fileDesc);
-            using (var stream = new StreamReader(kata04Config.WeatherFilePath))
+            var fileDesc = new FootballFileDescription(kata04Config.FootballFilePath);
+            FootballDataReader reader = new FootballDataReader(fileDesc);
+            using (var stream = new StreamReader(kata04Config.FootballFilePath))
             {
                 var result = await reader.ProcessFile(stream);
 
                 return new MinGoalDifferentialResponse
                 {
-                    MinRangeDayNumber = result.WeatherData
-                        .Select(w => new { Day = w.Day, Departure = w.MxT - w.MnT })
-                        .OrderByDescending(m => m.Departure)
-                        .First().Day
+                    TeamName = result.FootballData
+                        .Select(f => new { Team = f.Team, Differntial = f.For - f.Against })
+                        .OrderBy(m => m.Differntial)
+                        .First().Team
                 };
             }
 

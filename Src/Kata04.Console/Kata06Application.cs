@@ -7,6 +7,7 @@ using McMaster.Extensions.CommandLineUtils;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Kata04.Weather;
+using Kata04.Football;
 
 namespace Kata04
 {
@@ -37,9 +38,14 @@ namespace Kata04
                     await _mediator.Send(loadTestDataCommand);
                     break;
                 case "MinSpread":
-                    var minSpreadCommand = new MinGoalDifferentialCommand { };
-                    var response = await _mediator.Send(minSpreadCommand);
-                    _logger.LogInformation($"Min Departure Date: {response.MinRangeDayNumber}");
+                    var minSpreadCommand = new MinSpreadCommand { };
+                    var minSpreadresponse = await _mediator.Send(minSpreadCommand);
+                    _logger.LogInformation($"Min Departure Date: {minSpreadresponse.MinRangeDayNumber}");
+                    break;
+                case "MinGoalDifferential":
+                    var minGoalDifferentialCommand = new MinGoalDifferentialCommand { };
+                    var minGoalResponse = await _mediator.Send(minGoalDifferentialCommand);
+                    _logger.LogInformation($"Min goal differential team: {minGoalResponse.TeamName}");
                     break;
                 default:
                     Console.WriteLine($"Invalid Command: {Command}");

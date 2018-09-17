@@ -2,7 +2,7 @@
   "profiles": {
     "Kata04.Console": {
       "commandName": "Project",
-      "commandLineArgs": "MinSpread"
+      "commandLineArgs": "MinGoalDifferential"
     }
   }
 }

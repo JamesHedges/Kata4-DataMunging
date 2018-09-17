@@ -4,5 +4,6 @@
     {
         string KataDataBaseAddress { get; }
         string WeatherFilePath { get; }
+        string FootballFilePath { get; }
     }
 }

@@ -1,37 +1,35 @@
 ﻿using Xunit;
 using Shouldly;
-using Kata04.Weather;
+using Kata04.Football;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Kata04.Tests
 {
-    public class WeatherDataReaderUnitTests
+    public class FootballDataReaderUnitTests
     {
         [Fact]
         public async Task ReadOneLine()
         {
-            string[] data = 
+            string[] data =
             {
                 "Header",
-                "",
-                //"  Dy MxT   MnT   AvT   HDDay  AvDP 1HrP TPcpn WxType PDir AvSp Dir MxS SkyC MxR MnR AvSLP",
-                "   1  88    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5",
-                "   2  79    63    71          46.5       0.00         330  8.7 340  23  3.3  70 28 1004.5",
-                //"  mo  82.9  60.5  71.7    16  58.8       0.00              6.9          5.3"
-                "Footer"
+                //"       Team            P     W    L   D    F      A     Pts",
+                "    1. Arsenal         38    26   9   3    79  -  36    87",
+                "    9. Tottenham       38    14   8  16    49  -  53    50",
+                "   -------------------------------------------------------",
+                "   20. Leicester       38     5  13  20    30  -  64    28",
             };
 
-            WeatherDataReader weatherDataReader = new WeatherDataReader(GetTestFileDescription());
+            FootballDataReader weatherDataReader = new FootballDataReader(GetTestFileDescription());
 
             using (var stream = CreateMemoryReader(data))
             {
                 var result = await weatherDataReader.ProcessFile(stream);
 
-                result.WeatherData.Count().ShouldBe(2);
+                result.FootballData.Count().ShouldBe(3);
                 result.HeaderText.ShouldBe("Header");
-                result.SummaryText.ShouldBe("Footer");
             }
         }
 
@@ -39,7 +37,7 @@ namespace Kata04.Tests
         {
             var memStream = new MemoryStream();
             var writer = new StreamWriter(memStream);
-            foreach(var dat in data)
+            foreach (var dat in data)
             {
                 writer.Write(dat.ToCharArray());
                 writer.Write('\n');
@@ -50,9 +48,9 @@ namespace Kata04.Tests
             return new StreamReader(memStream, System.Text.Encoding.UTF8, true);
         }
 
-        private WeatherFileDescription GetTestFileDescription()
+        private FootballFileDescription GetTestFileDescription()
         {
-            var fileDesc = new WeatherFileDescription("in memeory");
+            var fileDesc = new FootballFileDescription("in memeory");
             return fileDesc;
         }
     }
