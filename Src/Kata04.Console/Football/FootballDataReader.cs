@@ -2,24 +2,24 @@
 using System.Threading.Tasks;
 using Kata04.Tabular;
 
-namespace Kata04.Weather
+namespace Kata04.Football
 {
-    public class WeatherDataReader
+    public class FootballDataReader
     {
 
-        private WeatherFileDescription _fileDescription;
+        private FootballFileDescription _fileDescription;
         private readonly FieldParser _fieldParser;
 
-        public WeatherDataReader(WeatherFileDescription fileDescription)
+        public FootballDataReader(FootballFileDescription fileDescription)
         {
             _fileDescription = fileDescription;
             _fieldParser = new FieldParser(_fileDescription.DataFields);
         }
 
-        public async Task<WeatherFileData> ProcessFile(StreamReader reader)
+        public async Task<FootballFileData> ProcessFile(StreamReader reader)
         {
             string line;
-            WeatherFileData weatherFileData = new WeatherFileData();
+            FootballFileData weatherFileData = new FootballFileData();
             bool isFirstLine = true;
 
             while((line = await reader.ReadLineAsync()) != null)
@@ -37,7 +37,7 @@ namespace Kata04.Weather
                 {
                     if (!IsIgnored(line))
                     {
-                        weatherFileData.AddWeatherData(ProcessWeatherData(line));
+                        weatherFileData.AddFootballData(ProcessFootballData(line));
                     }
                 }
             }
@@ -70,9 +70,9 @@ namespace Kata04.Weather
             return line;
         }
 
-        private WeatherData ProcessWeatherData(string line)
+        private FootballData ProcessFootballData(string line)
         {
-            return _fieldParser.ParseString<WeatherData>(line);
+            return _fieldParser.ParseString<FootballData>(line);
         }
     }
 }

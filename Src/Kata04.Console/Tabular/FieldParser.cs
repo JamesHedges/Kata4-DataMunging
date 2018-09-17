@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Kata04.Weather
+namespace Kata04.Tabular
 {
     public class FieldParser
     {

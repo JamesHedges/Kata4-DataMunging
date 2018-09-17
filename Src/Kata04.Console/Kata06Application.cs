@@ -37,7 +37,7 @@ namespace Kata04
                     await _mediator.Send(loadTestDataCommand);
                     break;
                 case "MinSpread":
-                    var minSpreadCommand = new MinSpreadCommand { };
+                    var minSpreadCommand = new MinGoalDifferentialCommand { };
                     var response = await _mediator.Send(minSpreadCommand);
                     _logger.LogInformation($"Min Departure Date: {response.MinRangeDayNumber}");
                     break;
@@ -48,9 +48,6 @@ namespace Kata04
 
             Console.ReadKey();
         }
-
-        public void TestCommand(CommandOption commandOption)
-        { }
 
         [Option("-S|--Source")]
         public string Source { get; set; }

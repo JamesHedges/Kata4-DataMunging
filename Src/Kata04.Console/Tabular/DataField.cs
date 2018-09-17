@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kata04.Weather
+namespace Kata04.Tabular
 {
     public class DataField
     {

@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using Kata04.Tabular;
 
-namespace Kata04.Weather
+namespace Kata04.Football
 {
-    public class WeatherFileDescription
+    public class FootballFileDescription
     {
         private readonly List<DataField> _dataFields;
         private FieldParser _fieldParser;
 
-        public WeatherFileDescription(string filePath)
+        public FootballFileDescription(string filePath)
         {
             FilePath = filePath;
             _dataFields = BuildDataMap();

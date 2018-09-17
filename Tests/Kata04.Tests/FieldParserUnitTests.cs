@@ -2,6 +2,7 @@ using Xunit;
 using Shouldly;
 using System.Collections.Generic;
 using Kata04.Weather;
+using Kata04.Tabular;
 
 namespace Kata04.Tests
 {
