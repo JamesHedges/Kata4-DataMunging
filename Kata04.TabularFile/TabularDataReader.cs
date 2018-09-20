@@ -51,7 +51,7 @@ namespace Kata04.TabularFile
 
         private bool IsIgnored(string line)
         {
-            return (string.IsNullOrEmpty(line) || line.TrimStart().StartsWith("----")) && _fileDescription.IgnoreBlankLines;
+            return _fileDescription.IgnoreSpecialLines && line.TrimStart().StartsWith("-----");
         }
 
         private bool IsHeaderLine(bool isFirstLine)

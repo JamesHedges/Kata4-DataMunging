@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Kata04.TabularFile
 {
-    public class BuildTabularFileDescription : IBuildTabularFileDescription
+    public class BuildTabularFileDescription
     {
-        private string _filePath;
+        private readonly string _filePath;
         private bool _hasHeading;
         private bool _hasSummary;
         private bool _ignoreBlankLines;
         private bool _ignoreSpecialLines;
-        private List<DataField> _fields;
+        private readonly List<DataField> _fields;
 
         public BuildTabularFileDescription(string filePath)
         {
@@ -18,31 +18,31 @@ namespace Kata04.TabularFile
             _fields = new List<DataField>();
         }
 
-        public IBuildTabularFileDescription HasHeadings(bool hasHeading)
+        public BuildTabularFileDescription HasHeadings(bool hasHeading)
         {
             _hasHeading = hasHeading;
             return this;
         }
 
-        public IBuildTabularFileDescription HasSummaryLine(bool hasSummary)
+        public BuildTabularFileDescription HasSummaryLine(bool hasSummary)
         {
             _hasSummary = hasSummary;
             return this;
         }
 
-        public IBuildTabularFileDescription IgnoreBlankLines(bool ignoreBlankLines)
+        public BuildTabularFileDescription IgnoreBlankLines(bool ignoreBlankLines)
         {
             _ignoreBlankLines = ignoreBlankLines;
             return this;
         }
 
-        public IBuildTabularFileDescription IgnoreSpecialLines(bool ignoreSpecialLines)
+        public BuildTabularFileDescription IgnoreSpecialLines(bool ignoreSpecialLines)
         {
             _ignoreSpecialLines = ignoreSpecialLines;
             return this;
         }
 
-        public IBuildTabularFileDescription AddField(string propertyName, Type dataType, int startIndex, int length)
+        public BuildTabularFileDescription AddField(string propertyName, Type dataType, int startIndex, int length)
         {
             _fields.Add(new DataField()
             {
@@ -54,7 +54,7 @@ namespace Kata04.TabularFile
             return this;
         }
 
-        public IBuildTabularFileDescription AddField(string propertyName, string dataFieldName, Type dataType, int startIndex,
+        public BuildTabularFileDescription AddField(string propertyName, string dataFieldName, Type dataType, int startIndex,
             int length)
         {
             _fields.Add(new DataField()

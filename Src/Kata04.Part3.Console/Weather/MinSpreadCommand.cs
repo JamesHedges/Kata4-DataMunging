@@ -57,7 +57,7 @@ namespace Kata04.Part3.Weather
                 .HasHeadings(true)
                 .HasSummaryLine(true)
                 .IgnoreBlankLines(true)
-                .IgnoreSpecialLines(false)
+                .IgnoreSpecialLines(true)
                 .AddField( "Day", typeof(int), 0, 4 )
                 .AddField( "MxT", typeof(int), 4, 4 )
                 .AddField( "MnT", typeof(int), 9, 5 )
