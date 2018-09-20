@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Tabular\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
     <PackageReference Include="MediatR" Version="5.1.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />

@@ -1,48 +1,52 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using Kata04.TabularFile;
 
-namespace Kata04.Part3.Football
+namespace Kata04.TabularFile
 {
-    public class FootballDataReader
+    public class TabularDataReader<T> where T : new()
     {
 
-        private FootballFileDescription _fileDescription;
+        private TabularFileDescription _fileDescription;
         private readonly FieldParser _fieldParser;
 
-        public FootballDataReader(FootballFileDescription fileDescription)
+        public TabularDataReader(TabularFileDescription fileDescription)
         {
             _fileDescription = fileDescription;
             _fieldParser = new FieldParser(_fileDescription.DataFields);
         }
 
-        public async Task<FootballFileData> ProcessFile(StreamReader reader)
+        public async Task<TabularFileData<T>> ProcessFile(StreamReader reader)
         {
             string line;
-            FootballFileData footballFileData = new FootballFileData();
+            TabularFileData<T> fileData = new TabularFileData<T>();
             bool isFirstLine = true;
 
-            while((line = await reader.ReadLineAsync()) != null)
+            while ((line = await reader.ReadLineAsync()) != null)
             {
                 if (IsHeaderLine(isFirstLine))
                 {
                     isFirstLine = false;
-                    footballFileData.HeaderText = ProcessHeaderLine(line);
+                    fileData.HeaderText = ProcessHeaderLine(line);
                 }
                 else if (IsSummaryLine(reader))
                 {
-                    footballFileData.SummaryText = ProcessSummaryLine(line);
+                    fileData.SummaryText = ProcessSummaryLine(line);
                 }
                 else
                 {
-                    if (!IsIgnored(line))
+                    if (!IsIgnored(line) && !IsIgnoredBlankLine(line))
                     {
-                        footballFileData.AddFootballData(ProcessFootballData(line));
+                        fileData.AddData(ProcessTabularFileDataLine(line));
                     }
                 }
             }
 
-            return footballFileData;
+            return fileData;
+        }
+
+        private bool IsIgnoredBlankLine(string line)
+        {
+            return _fileDescription.IgnoreBlankLines && string.IsNullOrEmpty(line);
         }
 
         private bool IsIgnored(string line)
@@ -70,9 +74,9 @@ namespace Kata04.Part3.Football
             return line;
         }
 
-        private FootballData ProcessFootballData(string line)
+        private T ProcessTabularFileDataLine(string line)
         {
-            return _fieldParser.ParseString<FootballData>(line);
+            return _fieldParser.ParseString<T>(line);
         }
     }
 }

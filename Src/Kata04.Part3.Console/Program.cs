@@ -4,6 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Kata04.TabularFile;
 
 namespace Kata04.Part3
 {

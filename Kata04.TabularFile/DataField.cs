@@ -5,13 +5,13 @@ namespace Kata04.TabularFile
     public class DataField
     {
 
-        public string FieldName { get; set; }
-        string _propertyName;
+        public string PropertyName { get; set; }
+        string _dataFieldName;
 
-        public string PropertyName
+        public string DataFieldName
         {
-            get => string.IsNullOrEmpty(_propertyName) ? FieldName : _propertyName;
-            set => _propertyName = value;
+            get => string.IsNullOrEmpty(_dataFieldName) ? PropertyName : _dataFieldName;
+            set => _dataFieldName = value;
         }
 
         public Type DataType { get; set; }

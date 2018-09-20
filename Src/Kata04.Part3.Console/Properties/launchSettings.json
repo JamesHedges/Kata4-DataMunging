@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Kata04.Part3.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "MinSpread"
+    }
+  }
+}

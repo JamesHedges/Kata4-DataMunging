@@ -28,7 +28,7 @@ namespace Kata04.Part3
 
         public async Task OnExecute()
         {
-            _logger.LogInformation("Running Kata 6 - Data Munging");
+            _logger.LogInformation("Running Kata 6 - Part 3: Data Munging");
 
             switch (Command)
             {
