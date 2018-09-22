@@ -46,7 +46,7 @@ namespace Kata04.TabularFile
 
         private bool IsIgnoredBlankLine(string line)
         {
-            return _fileDescription.IgnoreBlankLines && string.IsNullOrEmpty(line);
+            return _fileDescription.IgnoreBlankLines && string.IsNullOrEmpty(line.Trim());
         }
 
         private bool IsIgnored(string line)
