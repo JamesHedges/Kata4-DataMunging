@@ -43,7 +43,7 @@ namespace Kata04.Weather
                 {
                     MinRangeDayNumber = result.WeatherData
                         .Select(w => new { Day = w.Day, Departure = w.MxT - w.MnT })
-                        .OrderByDescending(m => m.Departure)
+                        .OrderBy(m => m.Departure)
                         .First().Day
                 };
             }
